@@ -1,31 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Scripts -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
-        <script src= "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-animate.js"></script>
-        <script src= "https://code.jquery.com/jquery-3.2.1.js"></script>
-        <script src= "script.js"></script>
+        <!--Page Title-->
+        <title>Blocks: Jumble</title>
 
-        <!-- Stylesheets -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="block.css">
+        <!--Scripts-->
+        <script type="text/javascript" src="script/jquery.js"></script>
+        <script type="text/javascript" src="script/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="script/js-plumb.js"></script>
+        <script type="text/javascript" src="script/script.js"></script>
+
+        <!--Stylesheets-->
+        <link rel="stylesheet" type="text/css" href="css/material-css.css">
+        <link rel="stylesheet" type="text/css" href="css/block.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     </head>
-    <body ng-app= "blockApp">
-        <div ng-controller= "blockController as bvm">
-            <div class= "block-container">
-                <div class= "block-row" ng-repeat= "row in bvm.rowArray track by $index" ng-init= "color= bvm.getRandomColor()">
-                    <div class= "block-box" ng-repeat= "block in bvm.blockMatrix[$index] track by $index">
-                        <div class= "block" ng-show= "block" ng-style= "{'background-color': block}">
-                             <!--ng-class= "{'green':$even, 'orange':$odd}"-->
-                            <span class= "add-remove-icons {{side}}" ng-repeat= "side in bvm.allSides">
-                                <i class="material-icons" ng-click= "color= bvm.getRandomColor();bvm.addBlock(side, $parent.$parent.$index, $parent.$index)">add_circle</i>
-                                <i class="material-icons" ng-click= "bvm.removeBlock(side, $parent.$parent.$index, $parent.$index)">remove_circle</i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <body>
+        <!--Button block-->
+        <button class= "btn btn-primary" id="add" onclick="addDiv();">Add Block</button>
+        <button id= "draw-line" class= "btn btn-success" id="draw" onclick="drawLine();">Draw line</button>
     </body>
 </html>
